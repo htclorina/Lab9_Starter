@@ -1,108 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 9</title>
-
-  <style>
-    button {
-      margin: 3px;
-    }
-
-    button:hover {
-      cursor: pointer;
-    }
-
-    #first-num,
-    #second-num {
-      width: 60px;
-    }
-
-    output {
-      border: 1px solid gray;
-      display: block;
-      height: 18px;
-      margin-top: 5px;
-      padding: 5px;
-      width: 240px;
-    }
-
-    main {
-      width: 800px;
-    }
-
-    #error-btns {
-      column-gap: 5px;
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 30px;
-      row-gap: 5px;
-    }
-
-    #error-btns>* {
-      padding: 8px 2px;
-      width: 122px;
-    }
-  </style>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Lab 9</title>
+ 
+ <style>
+   button {
+     margin: 3px;
+   }
+ 
+   button:hover {
+     cursor: pointer;
+   }
+ 
+   #first-num,
+   #second-num {
+     width: 60px;
+   }
+ 
+   output {
+     border: 1px solid gray;
+     display: block;
+     height: 18px;
+     margin-top: 5px;
+     padding: 5px;
+     width: 240px;
+   }
+ 
+   main {
+     width: 800px;
+   }
+ 
+   #error-btns {
+     column-gap: 5px;
+     display: flex;
+     flex-wrap: wrap;
+     margin-top: 30px;
+     row-gap: 5px;
+   }
+ 
+   #error-btns>* {
+     padding: 8px 2px;
+     width: 122px;
+   }
+ </style>
 </head>
-
+ 
 <body>
-  <main>
-    <form>
-      <fieldset>
-        <legend>Error Calculator</legend>
-        <input name="first-num" id="first-num" />
-        <select name="operator" id="operator">
-          <option>+</option>
-          <option>-</option>
-          <option>*</option>
-          <option>/</option>
-        </select>
-        <input name="second-num" id="second-num" />
-        <button id="calculate">Calculate</button>
-        <br />
-        <output></output>
-      </fieldset>
-    </form>
-
-    <section id="error-btns">
-      <button>Console Log</button>
-      <button>Console Error</button>
-      <button>Console Count</button>
-      <button>Console Warn</button>
-      <button>Console Assert</button>
-      <button>Console Clear</button>
-      <button>Console Dir</button>
-      <button>Console dirxml</button>
-      <button>Console Group Start</button>
-      <button>Console Group End</button>
-      <button>Console Table</button>
-      <button>Start Timer</button>
-      <button>End Timer</button>
-      <button>Console Trace</button>
-      <button>Trigger a Global Error</button>
-    </section>
-  </main>
-
-  <script>
-    let form = document.querySelector('form');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      let output = document.querySelector('output');
-      let firstNum = document.querySelector('#first-num').value;
-      let secondNum = document.querySelector('#second-num').value;
-      let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
-    });
-
-    let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
-
-    // Start your code here
-    // You may move this JS to another file if you wish
-  </script>
+ <main>
+   <form>
+     <fieldset>
+       <legend>Error Calculator</legend>
+       <input name="first-num" id="first-num" />
+       <select name="operator" id="operator">
+         <option>+</option>
+         <option>-</option>
+         <option>*</option>
+         <option>/</option>
+       </select>
+       <input name="second-num" id="second-num" />
+       <button id="calculate">Calculate</button>
+       <br />
+       <output></output>
+     </fieldset>
+   </form>
+ 
+   <section id="error-btns">
+     <button onclick="myFunction()">Console Log</button>
+     <button onclick="myFunction2()">Console Error</button>
+     <button onclick="myFunction3()">Console Count</button>
+     <button onclick="myFunction4()">Console Warn</button>
+     <button onclick="myFunction5()">Console Assert</button>
+     <button onclick="myFunction6()">Console Clear</button>
+     <button onclick="myFunction7()">Console Dir</button>
+     <button onclick="myFunction8()">Console dirxml</button>
+     <button onclick="myFunction9()">Console Group Start</button>
+     <button onclick="myFunction10()">Console Group End</button>
+     <button onclick="myFunction11()">Console Table</button>
+     <button onclick="myFunction12()">Start Timer</button>
+     <button onclick="myFunction13()">End Timer</button>
+     <button onclick="myFunction14()">Console Trace</button>
+     <button onclick="myFunction15()">Trigger a Global Error</button>
+   </section>
+ </main>
+ 
+ <script>
+   let form = document.querySelector('form');
+   form.addEventListener('submit', e => {
+     e.preventDefault();
+     var output = document.querySelector('output');
+     let firstNum = document.querySelector('#first-num').value;
+     let secondNum = document.querySelector('#second-num').value;
+     let operator = document.querySelector('#operator').value;
+     output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+   });
+ 
+   let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
+ 
+   // Start your code here
+   function myFunction()
+   {
+     console.log("hello");
+   }
+   function myFunction2()
+   {
+     console.error("error");
+   }
+   function myFunction3()
+   {
+     console.count();
+   }
+   function myFunction4()
+   {
+     console.warn("warning");
+   }
+   function myFunction5()
+   {
+     const t = true;
+     const err = "not true";
+     console.assert(!t, {t, err});
+   }
+   function myFunction6()
+   {
+     console.clear();
+   }
+   function myFunction7()
+   {
+     console.dir(document.body);
+   }
+   function myFunction8()
+   {
+     console.dirxml(document);
+   }
+   function myFunction9()
+   {
+     console.group();
+   }
+   function myFunction10()
+   {
+     console.groupEnd();
+   }
+   function myFunction11()
+   {
+     console.table([
+       {inputs: "hi",},
+       {inputs: "huh"},
+       {inputs: "nvm"},
+       {inputs: "okay"},
+     ]);
+   }
+   function myFunction12()
+   {
+     console.time();
+   }
+   function myFunction13()
+   {
+     console.timeEnd();
+   }
+   function myFunction14()
+   {
+     console.trace();
+   }
+   function myFunction15()
+   {
+     console.log("oops");
+     const g = 5;
+     g = 6;
+   }
+   try
+   {
+     const val = 6;
+     val + 7;
+     throw ("can't change const val");
+   }
+   catch (err)
+   {
+     console.log(err);
+   }
+   finally
+   {
+     console.log("hello");
+   }
+   class ConstError extends Error
+   {
+     constructor(message)
+     {
+       super(message);
+       this.name = "ConstError";
+     }
+   }
+   try
+   {
+     const val = 6;
+     val + 7;
+     throw new ConstError("can't change const val");
+   }
+   catch (err)
+   {
+     console.log(err);
+   }
+   // You may move this JS to another file if you wish
+ </script>
 </body>
-
+ 
 </html>
