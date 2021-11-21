@@ -21,14 +21,9 @@ jobs:
         with:
           dotnet-version: '6.0.x'
           include-prerelease: true
-      - name: Install Dependencies
-        run: dotnet restore ./WebSiteMeta/
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release --no-restore ./WebSiteMeta
-
-      - name: Test
-        run: dotnet test --no-restore --verbosity normal ./WebSiteMeta
+        run: dotnet build --configuration Releas
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
